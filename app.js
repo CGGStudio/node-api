@@ -9,12 +9,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+ 
 
 //Database connection
 app.use(function(req, res, next){
 	global.connection = mysql.createConnection({
-	  	host     : 'localhost',
+	  host     : 'localhost',
 		user     : 'root',
 		password : 'carlos',
 		database : 'node-api'
@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/api/v1/usuarios', usersRouter);
-
+app.use('/api/v1', usersRouter);
+ 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
